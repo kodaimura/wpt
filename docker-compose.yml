@@ -25,6 +25,14 @@ services:
     volumes:
       - ./db_data:/var/lib/mysql
 
+  phpmyadmin:
+    image: phpmyadmin
+    platform: linux/arm64/v8
+    depends_on:
+      - db
+    ports:
+      - 8888:80
+
 volumes:
   wordpress_data:
   db_data:
