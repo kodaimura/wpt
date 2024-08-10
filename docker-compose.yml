@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   wordpress:
+    container_name: wordpress
     image: wordpress:latest
     ports:
       - "8000:80"
@@ -16,6 +17,7 @@ services:
       - ./wordpress_data:/var/www/html
 
   db:
+    container_name: mysql
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -26,6 +28,7 @@ services:
       - ./db_data:/var/lib/mysql
 
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin
     platform: linux/arm64/v8
     depends_on:
